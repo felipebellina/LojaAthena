@@ -1,0 +1,20 @@
+﻿@model RoupaListViewModel
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div>   
+    <h2>@Model.CategoriaAtual</h2>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var roupa in Model.Roupas)
+        {
+            <partial name="_RoupaResumo" for="@roupa" />
+        }
+    </div>
+</div>
+
+
