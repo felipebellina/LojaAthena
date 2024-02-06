@@ -1,6 +1,7 @@
 ﻿using LojaAthena.Models;
 using LojaAthena.Repositories.Interfaces;
 using LojaAthena.ViewsModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaAthena.Controllers;
@@ -29,6 +30,7 @@ public class CarrinhoCompraController : Controller
         return View(carrinhoCompraVM);
     }
 
+    [Authorize]
     public IActionResult AdicionarNoCarrinho(int id)
     {
         var roupaSelecionada = _roupaRepository.Roupas.FirstOrDefault(x => x.Id == id);
@@ -40,6 +42,7 @@ public class CarrinhoCompraController : Controller
         return RedirectToAction("Index");
     }
 
+    [Authorize]
     public IActionResult RemoverDoCarrinho(int id)
     {
         var roupaSelecionada = _roupaRepository.Roupas.FirstOrDefault(x => x.Id == id);

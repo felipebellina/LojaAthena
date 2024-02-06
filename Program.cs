@@ -2,6 +2,7 @@ using LojaAthena.Data;
 using LojaAthena.Models;
 using LojaAthena.Repositories;
 using LojaAthena.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,18 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 var connString = builder.Configuration.GetConnectionString("DataBase");
 builder.Services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connString));
 
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BancoContext>().AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequiredUniqueChars = 1;
+});
+
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 
@@ -37,9 +50,11 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseRouting();
+
 app.UseSession();
 
-app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

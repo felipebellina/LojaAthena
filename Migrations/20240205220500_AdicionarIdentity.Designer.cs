@@ -4,6 +4,7 @@ using LojaAthena.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaAthena.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20240205220500_AdicionarIdentity")]
+    partial class AdicionarIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace LojaAthena.Migrations
 
                     b.HasIndex("RoupaId");
 
-                    b.ToTable("CarrinhoCompraItens", (string)null);
+                    b.ToTable("CarrinhoCompraItens");
                 });
 
             modelBuilder.Entity("LojaAthena.Models.CategoriaModel", b =>
@@ -67,7 +70,7 @@ namespace LojaAthena.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categorias", (string)null);
+                    b.ToTable("Categorias");
                 });
 
             modelBuilder.Entity("LojaAthena.Models.PedidoDetalheModel", b =>
@@ -96,7 +99,7 @@ namespace LojaAthena.Migrations
 
                     b.HasIndex("RoupaId");
 
-                    b.ToTable("PedidosDetalhe", (string)null);
+                    b.ToTable("PedidosDetalhe");
                 });
 
             modelBuilder.Entity("LojaAthena.Models.PedidoModel", b =>
@@ -163,7 +166,7 @@ namespace LojaAthena.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pedidos", (string)null);
+                    b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("LojaAthena.Models.RoupaModel", b =>
@@ -208,7 +211,7 @@ namespace LojaAthena.Migrations
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("Roupas", (string)null);
+                    b.ToTable("Roupas");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -1,9 +1,11 @@
 ﻿using LojaAthena.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace LojaAthena.Data;
 
-public class BancoContext : DbContext
+public class BancoContext : IdentityDbContext<IdentityUser>
 {
     public BancoContext(DbContextOptions<BancoContext> options) : base(options)
     {

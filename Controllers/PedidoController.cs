@@ -1,5 +1,6 @@
 ﻿using LojaAthena.Models;
 using LojaAthena.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaAthena.Controllers;
@@ -14,11 +15,13 @@ public class PedidoController : Controller
         _carrinhoCompra = carrinhoCompra;
     }
 
+    [Authorize]
     public IActionResult Checkout()
     {
         return View();
     }
 
+    [Authorize]
     [HttpPost]
     public IActionResult Checkout(PedidoModel pedido)
     {
