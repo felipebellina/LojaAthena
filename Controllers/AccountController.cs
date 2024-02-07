@@ -66,6 +66,7 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
+                await _userManager.AddToRoleAsync(user, "Member");
                 return RedirectToAction("Login", "Account");
             }
             else
@@ -86,5 +87,9 @@ public class AccountController : Controller
         return RedirectToAction("Index", "Home");
     }
 
+    public IActionResult AccessDenied()
+    {
+        return View();
+    }
 
 }

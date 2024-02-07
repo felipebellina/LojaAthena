@@ -2,8 +2,8 @@ using LojaAthena.Data;
 using LojaAthena.Models;
 using LojaAthena.Repositories;
 using LojaAthena.Repositories.Interfaces;
+using LojaAthena.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +14,15 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IRoupaRepository, RoupaRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>(); 
 builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", politica =>
+    {
+        politica.RequireRole("Admin");
+    });
+});
 
 builder.Services.AddScoped(sp => CarrinhoCompraModel.GetCarrinho(sp));
 
@@ -52,11 +61,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+CriarPerfilUsuario(app);
+
 app.UseSession();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "categoriaFiltro",
@@ -68,3 +83,14 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+void CriarPerfilUsuario(WebApplication app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<ISeedUserRoleInitial>();
+        service.SeedRoles();
+        service.SeedUsers();
+    }
+}
