@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using LojaAthena.Data;
 using LojaAthena.Models;
 using Microsoft.AspNetCore.Authorization;
+using LojaAthena.ViewsModels;
 
 namespace LojaAthena.Areas.Admin.Controllers;
 
@@ -16,6 +17,24 @@ public class AdminPedidosController : Controller
     {
         _context = context;
     }
+
+    public IActionResult PedidoRoupas(int? id)
+    {
+        var pedido = _context.Pedidos.Include(pd => pd.PedidoItens).ThenInclude(r => r.Roupa).FirstOrDefault(p => p.Id == id);
+
+        if (pedido == null)
+        {
+            Response.StatusCode = 404;
+            return View("PedidoNotFound", id.Value);
+        }
+        PedidoRoupaViewModel pedidoLanches = new PedidoRoupaViewModel()
+        {
+            Pedido = pedido,
+            PedidoDetalhes = pedido.PedidoItens
+        };
+        return View(pedidoLanches);
+    }
+
 
     // GET: Admin/AdminPedidos
     public async Task<IActionResult> Index()

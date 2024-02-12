@@ -1,3 +1,4 @@
+using LojaAthena.Areas.Admin.Services;
 using LojaAthena.Data;
 using LojaAthena.Models;
 using LojaAthena.Repositories;
@@ -15,6 +16,7 @@ builder.Services.AddTransient<IRoupaRepository, RoupaRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>(); 
 builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
+builder.Services.AddScoped<RelatorioVendasService>();
 
 builder.Services.AddAuthorization(options =>
 {
