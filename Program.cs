@@ -12,6 +12,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+var connString = builder.Configuration.GetConnectionString("DataBase");
+builder.Services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connString));
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BancoContext>().AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 3;
+    options.Password.RequiredUniqueChars = 1;
+});
+
 builder.Services.AddTransient<IRoupaRepository, RoupaRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>(); 
 builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
@@ -29,21 +43,6 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddScoped(sp => CarrinhoCompraModel.GetCarrinho(sp));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-var connString = builder.Configuration.GetConnectionString("DataBase");
-builder.Services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connString));
-
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BancoContext>().AddDefaultTokenProviders();
-
-builder.Services.Configure<IdentityOptions>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequiredLength = 3;
-    options.Password.RequiredUniqueChars = 1;
-});
 
 builder.Services.Configure<ConfigurationImagensModel>(builder.Configuration.GetSection("ConfigurationPastaImagens"));
 
