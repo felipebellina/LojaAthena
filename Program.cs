@@ -45,6 +45,8 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
+builder.Services.Configure<ConfigurationImagensModel>(builder.Configuration.GetSection("ConfigurationPastaImagens"));
+
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 
