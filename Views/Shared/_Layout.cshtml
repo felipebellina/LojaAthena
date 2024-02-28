@@ -11,50 +11,47 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Loja Athena</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/images/mini-logo-athena.png" alt="Logo Athena" width="100px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Roupa" asp-action="List">Roupas</a>
                         </li>
-                        @* <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Roupa" asp-action="List">Roupas</a>
-                        </li> *@
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
+                            <a class="nav-link" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>
                         </li>
-                        <li>
+                        <li class="nav-item">
                             @await Component.InvokeAsync("CategoriaMenu")
                         </li>
                         <li class="nav-item">
-                            @await Component.InvokeAsync("CarrinhoCompraResumo")
-                        </li>
-                        <li class ="nav-item">
                             <form class="navbar-form navbar-right" asp-controller="Roupa" asp-action="Search" method="get">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Procurar produto" name="searchString" value="@ViewData["searchString"]"/>
+                                    <input type="text" class="form-control me-2" placeholder="Procurar produto" name="searchString" value="@ViewData["searchString"]" />
                                 </div>
                             </form>
                         </li>
-                        <li>
+                        
+                    </ul>
+                    <ul class ="navbar-nav mb-2 mb-lg-0" >
+                        <li class="nav-item">
+                            @await Component.InvokeAsync("CarrinhoCompraResumo")
+                        </li>
+                        <li class="nav-item">
                             @if (User.IsInRole("Admin"))
                             {
                                 <a class="nav-link text-light" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
                             }
                         </li>
-                        <li>
+                        <li class="nav-item" id="logout">
                             @await Html.PartialAsync("_LoginPartial")
                         </li>
-                       
                     </ul>
+                    
                 </div>
             </div>
         </nav>
@@ -67,7 +64,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - LojaAthena - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - LojaAthena - 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

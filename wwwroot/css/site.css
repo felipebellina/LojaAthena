@@ -1,5 +1,51 @@
+@charset "UTF-8";
+
+:root {
+    --cor0: #616161;
+    --cor1: #434343;
+    --cor2: #6BBFB7;
+    --cor3: #6AD9CE;
+}
+
+body{
+    background-color: gray;
+}
+main{
+    max-width: 1400px;
+    background-color:white;
+    margin:auto;
+    text-align:center;
+}
+
+ nav.navbar{
+    background-color: var(--cor0);
+}
+nav div a.nav-link {
+    text-decoration: none;
+    color: white;
+}
+
+div a.dropdown-toggle {
+    text-decoration: none;
+    background-color:var(--cor0);
+    margin: 0px;
+}
+
+#carrinho{
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+#logout{
+    padding: 5px;
+    color: white;
+    background-color: var(--cor1);
+    border-radius: 10px;
+    
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {

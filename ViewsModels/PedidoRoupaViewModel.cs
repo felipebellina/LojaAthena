@@ -6,5 +6,5 @@ public class PedidoRoupaViewModel
 {
     public PedidoModel? Pedido { get; set; }
 
-    public IEnumerable<PedidoDetalheModel> PedidoDetalhes { get; set; }
+    public IEnumerable<PedidoDetalheModel>? PedidoDetalhes { get; set; }
 }
