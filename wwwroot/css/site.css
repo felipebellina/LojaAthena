@@ -66,3 +66,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+footer{
+    text-align: left;
+    background-color: white;
+}
+
+div#div-images{
+    background-color: lightgray;
+}
