@@ -15,8 +15,10 @@
 }
 else
 {
-    <ul class="nav navbar-nav">
-        <a class="nav-link text-light" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}",Context.Request.Path, Context.Request.QueryString)" style="color:white">&nbsp; Log in&nbsp; </a>
-        <a class="nav-link text-light" asp-controller="Account" asp-action="Register" style="color:white">&nbsp;Registro&nbsp;&nbsp;&nbsp; </a>
-    </ul>
+    <li>
+        <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@string.Format("{0}{1}",Context.Request.Path, Context.Request.QueryString)">
+            Entrar &nbsp;
+        </a>
+        <a asp-controller="Account" asp-action="Register">Registrar</a>
+    </li>
 }
