@@ -76,3 +76,7 @@ div#div-images{
     background-color: lightgray;
 }
 
+#logoutForm{
+    padding: 0;
+    margin: 0;
+}

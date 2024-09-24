@@ -5,12 +5,9 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="" asp-controller="Account" asp-action="Logout" id="logoutForm" method="post">
-        <ul class="nav navbar-nav">
-            <li class="nav-item">
-                <button type="submit" class="nav-link btn btn-link py-0">Logout</button>
-            </li>
-            
-        </ul>
+        <li>
+            <button id="botaoLogout" type="submit">Logout</button>
+        </li>
     </form>
 }
 else

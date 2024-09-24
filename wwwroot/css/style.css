@@ -1,3 +1,71 @@
+
+#botaoLogout {
+    background-image: none;
+    background: none;
+    text-decoration: none !important;
+    display: inline-block;
+    position: relative;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: var(--body-font);
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2;
+    text-align: center;
+    text-transform: lowercase;
+    color: var(--accent-color);
+    z-index: 1;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#botaoLogout::first-letter {
+    text-transform: uppercase;
+}
+
+#botaoLogout:hover {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+form {
+    margin: 0;
+}
+
+#logoutForm {
+    padding: 0;
+    margin: 0;
+}
+
+/*form button {*/
+    /*color: var(--dark-color);*/
+    /*text-decoration: none;
+    transition: 0.3s color ease-out;
+    margin: 0;
+    padding: 0;
+}
+
+
+button.light {
+    color: var(--light-color);
+}
+
+button:hover {
+    text-decoration: none;
+    color: var(--primary-color);
+}*/
+
+
 /*
 Theme Name: Ultras
 Theme URI: https://templatesjungle.com/
@@ -2890,3 +2958,6 @@ section.categories .category-content a{
 .jarallax.min-height300 {
     min-height: 300px;
 }
+
+/*---------------------------------------------------------------*/
+
