@@ -16,7 +16,7 @@ public class RoupaModel
 
     [Required(ErrorMessage = "A descrição da roupa deve ser informada")]
     [Display(Name = "Descrição da roupa")]
-    [MinLength(20, ErrorMessage = "Descrição da roupa deve ter no mínimo {1} caracteres")]
+    [MinLength(10, ErrorMessage = "Descrição da roupa deve ter no mínimo {1} caracteres")]
     [MaxLength(200, ErrorMessage = "Descrição da roupa deve ter no máximo {1} caracteres")]
     public string? Descricao { get; set; }
 

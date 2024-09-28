@@ -6,8 +6,8 @@
     @* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> *@
     @* <link rel="shortcut icon" href="" type="image/x-icon" /> *@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
-    @* <link rel="stylesheet" href="~/LojaAthena.styles.css" asp-append-version="true" /> *@
+    @* <link rel="stylesheet" href="~/css/site.css"/> *@
+    @* <link rel="stylesheet" href="~/LojaAthena.site.css" asp-append-version="true" /> *@
 
     @* Teste template *@
 
@@ -21,7 +21,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    @* <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true"> *@
+     @* <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true"> *@
     
     <link rel="stylesheet" type="text/css" href="~/css/normalize.css" asp-append-version="true">
     <link rel="stylesheet" type="text/css" href="~/icomoon/icomoon.css" asp-append-version="true">
@@ -39,8 +39,8 @@
 </head>
 <body>
 
-   @*  <!-- #region antigo -->
-
+   
+@* 
         <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -89,10 +89,10 @@
         </div>
         </nav>
 
-        </header>
+        </header> *@
         
 
-    <!-- #endregion --> *@
+    
         
     
     @*Teste template*@
@@ -150,7 +150,7 @@
                     <div class="row d-flex align-items-center">
                         <div class="col-md-4 header-contact">
                             <p>
-                               Fale conosco (51) 99999-9999
+                               Fale conosco! (51) 99999-9999
                             </p>
                         </div>
                         <div class="col-md-4 shipping-purchase text-center">
@@ -158,6 +158,12 @@
                         </div>
                         <div class="col-md-4 col-sm-12 user-items">
                             <ul class="d-flex justify-content-end list-unstyled">
+                                <li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <a class="btn btn-dark" style="margin: 0" asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
+                                    }
+                                </li>
                                 <li>
                                     @await Html.PartialAsync("_LoginPartial")
                                 </li>
@@ -206,12 +212,24 @@
                                         <li><a asp-controller="Home" asp-action="Index" class="item-anchor" data-effect="Home">Home</a></li>
                                         @* <li><a href="about.html" class="item-anchor" data-effect="About">About</a></li> *@
 
+                                        <li>
+                                            @await Component.InvokeAsync("CategoriaMenu")
+                                        </li>
+
                                         <li class="menu-item has-sub">
                                             <a href="shop.html" class="item-anchor d-flex align-item-center" data-effect="Shop">Shop<i class="icon icon-chevron-down"></i></a>
                                             <ul class="submenu">
-                                                <li><a href="shop.html" class="item-anchor">Shop</a></li>
-                                                <li><a href="shop-slider.html" class="item-anchor">Shop slider<span class="text-primary"> (PRO)</span></a></li>
-                                                <li><a href="shop-grid.html" class="item-anchor">Shop grid<span class="text-primary"> (PRO)</span></a></li>
+                                                <li>
+                                                    <a href="shop.html" class="item-anchor">Shop</a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="shop-slider.html" class="item-anchor">Shop slider<span class="text-primary"> (PRO)</span></a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="shop-grid.html" class="item-anchor">Shop grid<span class="text-primary"> (PRO)</span></a>
+                                                </li>
                                                 <li><a href="shop-list.html" class="item-anchor">Shop list<span class="text-primary"> (PRO)</span></a></li>
                                                 <li><a href="single-product.html" class="item-anchor">Single product<span class="text-primary"> (PRO)</span></a></li>
                                                 <li><a href="cart.html" class="item-anchor">Cart<span class="text-primary"> (PRO)</span></a></li>
@@ -259,8 +277,10 @@
 
     @*Fim do teste*@
 
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div>
+        @* class="container" *@
+        <main role="main">
+            @* class="pb-3" *@
             @RenderBody()
         </main>
     </div>
@@ -273,7 +293,6 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     
     <script src="~/js/jquery-1.11.0.min.js" asp-append-version="true"></script>
     <script src="~/js/plugins.js" asp-append-version="true"></script>

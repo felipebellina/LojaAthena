@@ -3,10 +3,6 @@
 
 @inject SignInManager<IdentityUser> SignInManager
 
-@* @if(Model.CarrinhoCompra.CarrinhoCompraItens.Count > 0)
-{
-} *@
-
 @if (SignInManager.IsSignedIn(User))
 {
     <a id="carrinho" asp-controller="CarrinhoCompra" asp-action="Index">

@@ -1,7 +1,7 @@
-﻿<div class="dropdown">
+﻿@* <div class="dropdown">
 
     <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Categorias</a>
-
+    
     <ul class="dropdown-menu">
         <li>
             <a class="dropdown-item" asp-controller="Roupa" asp-action="List" asp-route-categoria=""
@@ -18,4 +18,20 @@
         }
 
     </ul>
-</div>
+</div> *@
+
+
+<li class="menu-item has-sub">
+    <a @* asp-controller="Roupa" asp-action="List" asp-route-categoria="" *@ class="item-anchor d-flex align-item-center" data-effect="Shop">Categorias<i class="icon icon-chevron-down"></i></a>
+    <ul class="submenu">
+        <li>
+            <a class="item-anchor" asp-controller="Roupa" asp-action="List" asp-route-categoria="">Todas as Roupas</a>
+        </li>
+        @foreach (var categoria in Model)
+        {
+            <li>
+                <a class="item-anchor" asp-controller="Roupa" asp-action="List" asp-route-categoria="@categoria.Nome">@categoria.Nome</a>
+            </li>
+        }
+    </ul>
+</li>

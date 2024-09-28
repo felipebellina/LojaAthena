@@ -1,4 +1,5 @@
 
+
 #botaoLogout {
     background-image: none;
     background: none;
@@ -46,25 +47,6 @@ form {
     padding: 0;
     margin: 0;
 }
-
-/*form button {*/
-    /*color: var(--dark-color);*/
-    /*text-decoration: none;
-    transition: 0.3s color ease-out;
-    margin: 0;
-    padding: 0;
-}
-
-
-button.light {
-    color: var(--light-color);
-}
-
-button:hover {
-    text-decoration: none;
-    color: var(--primary-color);
-}*/
-
 
 /*
 Theme Name: Ultras
