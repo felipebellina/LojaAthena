@@ -10,13 +10,13 @@ public class RoupaModel
     public int Id { get; set; }
 
     [Required]
-    [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2}")]
+    [StringLength(80, MinimumLength = 5, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2}")]
     [Display(Name = "Nome da Roupa")]
     public string? Nome { get; set; }
 
     [Required(ErrorMessage = "A descrição da roupa deve ser informada")]
     [Display(Name = "Descrição da roupa")]
-    [MinLength(10, ErrorMessage = "Descrição da roupa deve ter no mínimo {1} caracteres")]
+    [MinLength(5, ErrorMessage = "Descrição da roupa deve ter no mínimo {1} caracteres")]
     [MaxLength(200, ErrorMessage = "Descrição da roupa deve ter no máximo {1} caracteres")]
     public string? Descricao { get; set; }
 

@@ -13,7 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connString = builder.Configuration.GetConnectionString("DataBase");
-builder.Services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connString));
+
+//builder.Services.AddDbContext<BancoContext>(opt => opt.UseSqlServer(connString));
+builder.Services.AddDbContext<BancoContext>(opt => opt.UseMySql(connString, ServerVersion.AutoDetect(connString)));
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<BancoContext>().AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
