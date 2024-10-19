@@ -101,7 +101,7 @@
 
             <form role="search" class="search-form" asp-controller="Roupa" asp-action="Search" method="get">
                 <input type="search" id="search-form" class="search-field" placeholder="Procurar produto"  name="searchString" value="@ViewData["searchString"]" />
-                <button type="submit" class="search-submit"><a href="#"><i class="icon icon-search"></i></a></button>
+                <button type="submit" class="search-submit"><i class="icon icon-search"></i><</button>
             </form>
 
             <h5 class="cat-list-title">Browse Categories</h5>
@@ -200,12 +200,14 @@
 
                                         <li><a asp-controller="Home" asp-action="Index" class="item-anchor" data-effect="Home">Home</a></li>
                                         @* <li><a href="about.html" class="item-anchor" data-effect="About">About</a></li> *@
-
                                         <li>
                                             @await Component.InvokeAsync("CategoriaMenu")
                                         </li>
+                                        <li>
+                                            <a>Estações</a>
+                                        </li>
 
-                                        <li class="menu-item has-sub">
+                                        @* <li class="menu-item has-sub">
                                             <a href="shop.html" class="item-anchor d-flex align-item-center" data-effect="Shop">Shop<i class="icon icon-chevron-down"></i></a>
                                             <ul class="submenu">
                                                 <li>
@@ -225,9 +227,9 @@
                                                 <li><a href="wishlist.html" class="item-anchor">Wishlist<span class="text-primary"> (PRO)</span></a></li>
                                                 <li><a href="checkout.html" class="item-anchor">Checkout<span class="text-primary"> (PRO)</span></a></li>
                                             </ul>
-                                        </li>
+                                        </li> *@
 
-                                        <li class="menu-item has-sub">
+                                        @* <li class="menu-item has-sub">
                                             <a href="#" class="item-anchor d-flex align-item-center" data-effect="Pages">Pages<i class="icon icon-chevron-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="coming-soon.html" class="item-anchor">Coming soon<span class="text-primary"> (PRO)</span></a></li>
@@ -237,9 +239,9 @@
                                                 <li><a href="thank-you.html" class="item-anchor">Thankyou</a></li>
                                                 <li><a href="error.html" class="item-anchor">Error page<span class="text-primary"> (PRO)</span></a></li>
                                             </ul>
-                                        </li>
+                                        </li> *@
 
-                                        <li class="menu-item has-sub">
+                                        @* <li class="menu-item has-sub">
                                             <a href="blog.html" class="item-anchor d-flex align-item-center" data-effect="Blog">Blog<i class="icon icon-chevron-down"></i></a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html" class="item-anchor">Blog</a></li>
@@ -247,7 +249,7 @@
                                                 <li><a href="blog-masonry.html" class="item-anchor">Blog masonry<span class="text-primary"> (PRO)</span></a></li>
                                                 <li><a href="single-post.html" class="item-anchor">Single post</a></li>
                                             </ul>
-                                        </li>
+                                        </li> *@
 
                                         <li>
                                             <a class="item-anchor" data-effect="Contact" asp-area="" asp-controller="Contato" asp-action="Index">Contato</a>

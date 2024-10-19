@@ -29,13 +29,13 @@ public class RoupaController : Controller
 
             categoriaAtual = categoria;
         }
-        var lanchesListViewModel = new RoupaListViewModel
+        var roupasListViewModel = new RoupaListViewModel
         {
             Roupas = roupas,
             CategoriaAtual = categoriaAtual
         };
 
-        return View(lanchesListViewModel);
+        return View(roupasListViewModel);
     }
 
     public IActionResult Details(int id)
@@ -67,7 +67,7 @@ public class RoupaController : Controller
                 categoriaAtual = "Nenhuma roupa foi encontrada";
             }
         }
-
+        
         return View("~/Views/Roupa/List.cshtml", new RoupaListViewModel
         {
             Roupas = roupas,
