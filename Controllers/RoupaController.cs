@@ -7,10 +7,12 @@ namespace LojaAthena.Controllers;
 public class RoupaController : Controller
 {
     private readonly IRoupaRepository _roupaRepository;
+    private readonly ICategoriaRepository _categoriaRepository;
 
-    public RoupaController(IRoupaRepository repository)
+    public RoupaController(IRoupaRepository repository, ICategoriaRepository categoriaRepository)
     {
         _roupaRepository = repository;
+        _categoriaRepository = categoriaRepository;
     }
 
     public IActionResult List(string categoria)
@@ -20,7 +22,7 @@ public class RoupaController : Controller
 
         if (string.IsNullOrEmpty(categoria))
         {
-            roupas = _roupaRepository.Roupas.OrderBy(x => x.Id);
+            roupas = _roupaRepository.Roupas.OrderBy(x => x.Nome);
             categoriaAtual = "Todas as roupas";
         }
         else
@@ -32,7 +34,8 @@ public class RoupaController : Controller
         var roupasListViewModel = new RoupaListViewModel
         {
             Roupas = roupas,
-            CategoriaAtual = categoriaAtual
+            CategoriaAtual = categoriaAtual,
+            Categorias = _categoriaRepository.Categorias
         };
 
         return View(roupasListViewModel);
@@ -51,7 +54,7 @@ public class RoupaController : Controller
 
         if (string.IsNullOrEmpty(searchString))
         {
-            roupas = _roupaRepository.Roupas.OrderBy(x => x.Id);
+            roupas = _roupaRepository.Roupas.OrderBy(x => x.Nome);
             categoriaAtual = "Todas as Roupas";
         }
         else
@@ -71,7 +74,8 @@ public class RoupaController : Controller
         return View("~/Views/Roupa/List.cshtml", new RoupaListViewModel
         {
             Roupas = roupas,
-            CategoriaAtual= categoriaAtual
+            CategoriaAtual= categoriaAtual,
+            Categorias = _categoriaRepository.Categorias
         });
     }
 }

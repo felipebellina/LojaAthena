@@ -14,7 +14,7 @@
 <h3>Entrega: @Html.DisplayFor(model => Model.Pedido.PedidoEntregueEm)</h3>
 
 <table class="table">
-    @foreach (var item in @Model.Pedido.PedidoItens)
+    @foreach (var item in Model.Pedido.PedidoItens)
     {
         totalPedido += (@item.Roupa.Preco * @item.Quantidade);
         <tr>

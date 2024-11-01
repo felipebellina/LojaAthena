@@ -27,8 +27,18 @@
             <section id="selling-products" class="col-md-9 product-store">
                 <div class="container">
                     <ul class="tabs list-unstyled">
-                        <li data-tab-target="#all" class="active tab">All</li>
-                       @*  <li data-tab-target="#shoes" class="tab">Shoes</li>
+                        <li class="tab">
+                            <a asp-controller="Roupa" asp-action="List" asp-route-categoria="">Todos</a>
+                        </li>
+                        
+                        @foreach (var categoria in Model.Categorias)
+                        {
+                            <li class="tab">
+                                <a asp-controller="Roupa" asp-action="List" asp-route-categoria="@categoria.Nome">@categoria.Nome</a>
+                            </li>
+                        }
+
+                        @* <li data-tab-target="#shoes" class="tab">Shoes</li>
                         <li data-tab-target="#tshirts" class="tab">Tshirts</li>
                         <li data-tab-target="#pants" class="tab">Pants</li>
                         <li data-tab-target="#hoodie" class="tab">Hoodie</li>
