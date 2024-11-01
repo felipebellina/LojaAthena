@@ -204,7 +204,7 @@
                                             @await Component.InvokeAsync("CategoriaMenu")
                                         </li>
                                         <li>
-                                            <a>Estações</a>
+                                            <a href="" class="item-anchor" data-effect="Home">Estações</a>
                                         </li>
 
                                         @* <li class="menu-item has-sub">
@@ -274,11 +274,13 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @* <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - LojaAthena
         </div>
-    </footer>
+    </footer> *@
+
+    <partial name="_Footer" />
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     
