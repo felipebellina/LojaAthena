@@ -1,5 +1,5 @@
 # 🛍️ Athena Store
-
+### Acesse o site <a href="http://147.79.107.99:5000/" target="_blank">aqui</a>
 ## 🚀 Funcionalidades
 ### 🛒 Para Clientes:
 Navegação de produtos: Explore uma vasta gama de roupas com detalhes e imagem.
