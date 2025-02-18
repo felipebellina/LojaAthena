@@ -24,6 +24,9 @@
     ================================================== -->
     <script src="~/js/modernizr.js"></script>
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 
 </head>
 <body>
@@ -283,10 +286,10 @@
     <partial name="_Footer" />
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    
     <script src="~/js/jquery-1.11.0.min.js" asp-append-version="true"></script>
     <script src="~/js/plugins.js" asp-append-version="true"></script>
     <script src="~/js/script.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,70 +1,83 @@
 ﻿@model PedidoModel
 
-<h3>Você esta a um passo de completar o seu pedido</h3>
-<hr />
-<form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+<form asp-action="Checkout" method="post" role="form">
+    <div class="space-y-12">
+        <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base/7 font-semibold text-gray-900">Complete o cadastro para finalizar o pedido</h2>
 
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label asp-for="Nome" class="control-label"></label>
-            <input asp-for="Nome" class="form-control" />
-            <span asp-validation-for="Nome" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-6">
-            <label asp-for="Sobrenome" class="control-label"></label>
-            <input asp-for="Sobrenome" class="form-control" />
-            <span asp-validation-for="Sobrenome" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label asp-for="Endereco1" class="control-label"></label>
-            <input asp-for="Endereco1" class="form-control" />
-            <span asp-validation-for="Endereco1" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-6">
-            <label asp-for="Endereco2" class="control-label"></label>
-            <input asp-for="Endereco2" class="form-control" />
-            <span asp-validation-for="Endereco2" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-md-4">
-            <label asp-for="Cep" class="control-label"></label>
-            <input asp-for="Cep" class="form-control" />
-            <span asp-validation-for="Cep" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="Cidade" class="control-label"></label>
-            <input asp-for="Cidade" class="form-control" />
-            <span asp-validation-for="Cidade" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-4">
-            <label asp-for="Estado" class="control-label"></label>
-            <input asp-for="Estado" class="form-control" />
-            <span asp-validation-for="Estado" class="text-danger"></span>
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-1">
+                    <label asp-for="Nome" class="block text-sm/6 font-medium text-gray-900">Nome</label>
+                    <div class="mt-2">
+                        <input asp-for="Nome" type="text" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label asp-for="Sobrenome" class="block text-sm/6 font-medium text-gray-900">Sobrenome</label>
+                    <div class="mt-2">
+                        <input asp-for="Sobrenome" type="text" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label asp-for="Email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+                    <div class="mt-2">
+                        <input asp-for="Email" type="email" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1">
+                    <label asp-for="Telefone" class="block text-sm/6 font-medium text-gray-900">Telefone</label>
+                    <div class="mt-2">
+                        <input asp-for="Telefone" type="tel" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-1 sm:col-start-1">
+                    <label asp-for="Cep" class="block text-sm/6 font-medium text-gray-900">CEP</label>
+                    <div class="mt-2">
+                        <input asp-for="Cep" type="text" id="Cep" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2 sm:col-start-1">
+                    <label asp-for="Endereco1" class="block text-sm/6 font-medium text-gray-900">Rua</label>
+                    <div class="mt-2">
+                        <input asp-for="Endereco1" type="text" id="Logradouro" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+                <div class="sm:col-span-1">
+                    <label asp-for="Endereco2" class="block text-sm/6 font-medium text-gray-900">Complemento</label>
+                    <div class="mt-2">
+                        <input asp-for="Endereco2" type="text" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2 sm:col-start-1">
+                    <label asp-for="Cidade" class="block text-sm/6 font-medium text-gray-900">Cidade</label>
+                    <div class="mt-2">
+                        <input asp-for="Cidade" type="text" id="Localidade" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                    <label asp-for="Estado" class="block text-sm/6 font-medium text-gray-900">Estado</label>
+                    <div class="mt-2">
+                        <input asp-for="Estado" type="text" id="Estado" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                    </div>
+                </div>
+
+                
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="form-group col-md-6">
-            <label asp-for="Telefone" class="control-label"></label>
-            <input asp-for="Telefone" class="form-control" />
-            <span asp-validation-for="Telefone" class="text-danger"></span>
-        </div>
-        <div class="form-group col-md-6">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="form-group col-md-3">
-            <input class="btn btn-success" type="submit" value="Concluir Pedido" />
-        </div>
-        <div class="form-group col-md-3">
-            <a class="btn btn-outline-info" asp-controller="CarrinhoCompra" asp-action="Index">Retornar ao Carrinho</a>
-        </div>
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button asp-controller="CarrinhoCompra" asp-action="Index" type="button" class="text-sm/6 font-semibold text-gray-900">Retornar ao Carrinho</button>
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Finalizar Pedido</button> 
+
+        <a class="text-sm/6 font-semibold text-gray-900" asp-controller="CarrinhoCompra" asp-action="Index">Retornar ao Carrinho</a>
+        <input class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" value="Concluir Pedido" />
     </div>
 </form>

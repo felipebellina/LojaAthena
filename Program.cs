@@ -28,8 +28,11 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
+builder.Services.AddTransient<IEnderecoRepository,EnderecoRepository>();
+
 builder.Services.AddTransient<IRoupaRepository, RoupaRepository>();
-builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>(); 
+builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddTransient<ITamanhoRepository, TamanhoRepository>();
 builder.Services.AddTransient<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<ISeedUserRoleInitial, SeedUserRoleInitial>();
 builder.Services.AddScoped<RelatorioVendasService>();
@@ -45,11 +48,13 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddScoped(sp => CarrinhoCompraModel.GetCarrinho(sp));
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddHttpClient();
 
 builder.Services.Configure<ConfigurationImagensModel>(builder.Configuration.GetSection("ConfigurationPastaImagens"));
 
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
+
 
 var app = builder.Build();
 
