@@ -13,20 +13,6 @@ public class EnderecoRepository : IEnderecoRepository
         _httpClient.BaseAddress = new Uri("https://viacep.com.br");
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
-
-   /* public static string Method(string path)
-    {
-        using (var client = new HttpClient())
-        {
-            var response = client.GetAsync(path).GetAwaiter().GetResult();
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = response.Content;
-                return responseContent.ReadAsStringAsync().GetAwaiter().GetResult();
-            }
-        }
-    }*/
-
     public EnderecoModel GetEndereco(string cep)
     {
 
@@ -46,7 +32,7 @@ public class EnderecoRepository : IEnderecoRepository
             }
 
         }
-        catch (Exception messagem)
+        catch (Exception menssagem)
         {
 
             throw;
@@ -54,29 +40,4 @@ public class EnderecoRepository : IEnderecoRepository
 
     }
 
-
-    /*public  EnderecoModel GetEndereco(string cep)
-    {
-
-        try
-        {
-            var response = await _httpClient.GetAsync($"/ws/{cep}/json");
-
-            if (response.IsSuccessStatusCode)
-            {
-                var endereco = await response.Content.ReadAsAsync<EnderecoModel>();
-                return endereco;
-            }
-            else {
-                return null;
-            }
-
-        }
-        catch (Exception messagem)
-        {
-
-            throw; 
-        }
-
-    }*/
 }
