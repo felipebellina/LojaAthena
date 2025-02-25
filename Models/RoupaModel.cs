@@ -41,5 +41,8 @@ public class RoupaModel
     public bool Estoque { get; set; }
 
     public int CategoriaId { get; set; }
-    public virtual CategoriaModel? Categoria { get; set; }
+    public CategoriaModel? Categoria { get; set; }
+
+    public List<TamanhoModel>? Tamanhos { get; set; }
+
 }
