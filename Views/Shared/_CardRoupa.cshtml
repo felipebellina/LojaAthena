@@ -2,7 +2,9 @@
 
 <div class="product-item col-lg-4 col-md-6 col-sm-6">
     <div class="image-holder">
-    <img src="@Model.ImagemUrl" alt="@Model.Nome" class="product-image" asp-append-version="true">
+        <a asp-action="Details" asp-controller="Roupa" asp-route-Id="@Model.Id">
+            <img src="@Model.ImagemUrl" alt="@Model.Nome" class="product-image" asp-append-version="true">
+        </a>
     </div>
     <div class="cart-concern">
         <div class="cart-button d-flex justify-content-between align-items-center">
