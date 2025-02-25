@@ -29,6 +29,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddTransient<IEnderecoRepository,EnderecoRepository>();
+builder.Services.AddTransient<IMercadoPagoRepository, MercadoPagoRopository>();
 
 builder.Services.AddTransient<IRoupaRepository, RoupaRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
