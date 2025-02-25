@@ -16,4 +16,5 @@ public class BancoContext : IdentityDbContext<IdentityUser>
     public DbSet<CarrinhoCompraItemModel> CarrinhoCompraItens { get; set; }
     public DbSet<PedidoModel> Pedidos { get; set; }
     public DbSet<PedidoDetalheModel> PedidosDetalhe { get; set; }
+    public DbSet<TamanhoModel> Tamanhos { get; set; }
 }
