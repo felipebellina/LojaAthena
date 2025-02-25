@@ -8,11 +8,13 @@ public class RoupaController : Controller
 {
     private readonly IRoupaRepository _roupaRepository;
     private readonly ICategoriaRepository _categoriaRepository;
+    private readonly ITamanhoRepository _tamanhoRepository;
 
-    public RoupaController(IRoupaRepository repository, ICategoriaRepository categoriaRepository)
+    public RoupaController(IRoupaRepository repository, ICategoriaRepository categoriaRepository, ITamanhoRepository tamanhoRepository)
     {
         _roupaRepository = repository;
         _categoriaRepository = categoriaRepository;
+        _tamanhoRepository = tamanhoRepository;
     }
 
     public IActionResult List(string categoria)
@@ -44,6 +46,7 @@ public class RoupaController : Controller
     public IActionResult Details(int id)
     {
         var roupa = _roupaRepository.Roupas.FirstOrDefault(x => x.Id == id);
+        roupa.Tamanhos = _tamanhoRepository.Tamanhos.Where(x => x.RoupaId == id).ToList();
         return View(roupa);
     }
 
