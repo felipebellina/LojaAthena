@@ -4,5 +4,5 @@ namespace LojaAthena.Repositories.Interfaces;
 
 public interface IMercadoPagoRepository
 {
-    PaymentResponseDto CreatePayment(CreatePaymentDto paymentDto);
+    PaymentResponseDto CreatePayment(CreatePaymentRequestDto paymentDto);
 }

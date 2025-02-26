@@ -2,7 +2,7 @@
 
 namespace LojaAthena.Models;
 
-public class CreatePaymentDto
+public class CreatePaymentRequestDto
 {
     [JsonProperty("description")]
     public string? Description { get; set; }

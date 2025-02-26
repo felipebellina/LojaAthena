@@ -16,7 +16,7 @@ public class PagamentoController : Controller
 
 
     [HttpPost]
-    public IActionResult CreatePayment([FromBody]CreatePaymentDto paymentDto)
+    public IActionResult CreatePayment([FromBody]CreatePaymentRequestDto paymentDto)
     {
         if (paymentDto == null)
         {

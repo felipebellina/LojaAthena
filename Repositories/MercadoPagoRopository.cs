@@ -17,7 +17,7 @@ public class MercadoPagoRopository : IMercadoPagoRepository
         _httpClient.DefaultRequestHeaders.Add("X-Idempotency-Key", Guid.NewGuid().ToString());
     }
 
-    public PaymentResponseDto CreatePayment(CreatePaymentDto paymentDto)
+    public PaymentResponseDto CreatePayment(CreatePaymentRequestDto paymentDto)
     {
         try
         {
