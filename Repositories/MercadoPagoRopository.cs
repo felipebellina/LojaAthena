@@ -1,6 +1,5 @@
 ﻿using LojaAthena.Models;
 using LojaAthena.Repositories.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
@@ -18,23 +17,63 @@ public class MercadoPagoRopository : IMercadoPagoRepository
         _httpClient.DefaultRequestHeaders.Add("X-Idempotency-Key", Guid.NewGuid().ToString());
     }
 
-    public PaymentResponseDto CreatePayment([FromBody]CreatePaymentDto paymentDto)
+    public PaymentResponseDto CreatePayment(CreatePaymentDto paymentDto)
     {
-
-        var content = new StringContent(JsonConvert.SerializeObject(paymentDto));
-        var response = _httpClient.PostAsync("/v1/payments", content).GetAwaiter().GetResult();
-
-        if (response.IsSuccessStatusCode)
+        try
         {
-            var result = response.Content.ReadAsAsync<PaymentResponseDto>().Result;
+            var content = new StringContent(JsonConvert.SerializeObject(paymentDto));
+            var response = _httpClient.PostAsync("/v1/payments", content).GetAwaiter().GetResult();
 
-            return result;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsAsync<PaymentResponseDto>().Result;
+
+                return result;
+            }
+            else
+            {
+                var errorResult = response.Content.ReadAsAsync<PaymentResponseDto>().Result;
+                return errorResult;
+            }
         }
-        else
+        catch (Exception message)
         {
-            var errorResult = response.Content.ReadAsAsync<PaymentResponseDto>().Result;
-            return errorResult;
+            throw new Exception(message.Message);
         }
-
     }
+    /*[HttpPost]
+    public PaymentResponseDto CreatePayment([FromBody] CreatePaymentDto paymentDto)
+    {
+        if (paymentDto == null)
+        {
+            throw new ArgumentNullException(nameof(paymentDto), "PaymentDto cannot be null.");
+        }
+
+        try
+        {
+            var json = JsonConvert.SerializeObject(paymentDto);
+            Console.WriteLine(json); // Ou use um logger apropriado
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = _httpClient.PostAsync("/v1/payments", content).GetAwaiter().GetResult();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsAsync<PaymentResponseDto>().Result;
+                return result;
+            }
+            else
+            {
+                var errorResult = response.Content.ReadAsStringAsync().Result; // Obtenha o conteúdo completo da resposta
+                Console.WriteLine(errorResult); // Ou use um logger apropriado
+                throw new ApplicationException($"Erro na solicitação: {errorResult}");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log or handle the exception as needed
+            throw new Exception(ex);
+        }
+    }*/
 }
