@@ -1,0 +1,14 @@
+﻿@model CarrinhoCompraViewModel
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a id="carrinho" asp-controller="CarrinhoCompra" asp-action="Index">
+        <i class="icon icon-shopping-cart"></i>
+        @* <span style="color:white">
+            @Model.CarrinhoCompra.CarrinhoCompraItens.Count
+        </span> *@
+    </a>
+}

@@ -1,0 +1,29 @@
+﻿@model RoupaModel
+
+<div class="product-item col-lg-4 col-md-6 col-sm-6">
+    <div class="image-holder">
+        <a asp-action="Details" asp-controller="Roupa" asp-route-Id="@Model.Id">
+            <img src="@Model.ImagemUrl" alt="@Model.Nome" class="product-image" asp-append-version="true">
+        </a>
+    </div>
+    <div class="cart-concern">
+        <div class="cart-button d-flex justify-content-between align-items-center">
+            <a asp-controller="CarrinhoCompra" asp-action="AdicionarNoCarrinho" asp-route-Id="@Model.Id" type="button" class="btn-wrap cart-link d-flex align-items-center">
+                add ao carrinho <i class="icon icon-arrow-io"></i>
+            </a>
+            @* <button type="button" class="view-btn tooltip d-flex">
+                <i class="icon icon-screen-full"></i>
+                <span class="tooltip-text">Quick view</span>
+            </button>
+            <button type="button" class="wishlist-btn">
+                <i class="icon icon-heart"></i>
+            </button> *@
+        </div>
+    </div>
+    <div class="product-detail">
+        <h3 class="product-title">
+            <a href="single-product.html">@Model.Nome</a>
+        </h3>
+    <div class="item-price text-primary">R$ @string.Format(CultureInfo.GetCultureInfo("pt-BR"),"{0:N2}",Model.Preco)</div>
+    </div>
+</div>

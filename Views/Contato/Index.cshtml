@@ -1,0 +1,197 @@
+﻿@* <div class="container">
+    <img src="~/images/faleconosco1.jpg" alt="Fale conosco" />
+    <div class="jumbotron">
+        <h3>Queremos ouvir o que você tem a dicer</h3>
+        <p>
+            Se você tiver alguma dúvida ou sugestão fale conosco
+        </p>
+
+        <p>
+            
+            <h5>
+                <span>
+                    <img src="~/images/Envelope-icon24.png" />
+                </span><email endereco="felipeluizb@hotmail.com" conteudo="Enviar um e-mail"></email>
+            </h5>
+            <br />
+            
+            <h5>
+                <span>
+                    <img src="~/images/phone-app-icon.png" />
+                </span> 
+                (51) 99999-9999
+            </h5>
+            <br />
+            
+            <h5><span><img src="~/images/Home-iconred.png" /></span> Av. das Flores 2000 - 99999-999 - São Paulo</h5>
+        </p>
+
+    </div>
+</div> *@
+
+<section class="site-banner jarallax padding-large" style="background: url(images/hero-image.jpg) no-repeat; background-position: top;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">Contatos</h1>
+                <div class="breadcrumbs">
+                    <span class="item">
+                        <a asp-controller="Home" asp-action="Index">Home /</a>
+                    </span>
+                    <span class="item">Contatos</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-information padding-large">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="section-header">
+                    <h2 class="section-title">Entre em contato</h2>
+                </div>
+                <div class="contact-detail">
+                    <div class="detail-list">
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <ul class="list-unstyled list-icon">
+                            <li>
+                                <a href="#"><i class="icon icon-phone"></i>(51) 99999-9999</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon icon-mail"></i>email@gmail.com</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="icon icon-map-pin"></i>Rua tal tal tal,nº tal, Santa Cruz do Sul</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="social-links">
+                        <h3>Nossas redes sociais</h3>
+                        <ul class="d-flex list-unstyled">
+                            @* <li><a href="#" class="icon icon-facebook"></a></li> *@
+                            @* <li><a href="#" class="icon icon-twitter"></a></li> *@
+                            <li><a href="https://www.instagram.com/athenastorescs/" target="_blank" rel="noopener noreferrer" class="icon icon-instagram"></a></li>
+                            @* <li><a href="#" class="icon icon-youtube-play"></a></li> *@
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @* <div class="col-md-6">
+                <div class="contact-information">
+                    <div class="section-header">
+                        <h2 class="section-title">Send us a message</h2>
+                    </div>
+                    <form name="contactform" action="contact.php" method="post" class="contact-form">
+                        <div class="form-item">
+                            <input type="text" minlength="2" name="name" placeholder="Name" class="u-full-width bg-light" required>
+                            <input type="email" name="email" placeholder="E-mail" class="u-full-width bg-light" required>
+                            <textarea class="u-full-width bg-light" name="message" placeholder="Message" style="height: 180px;" required></textarea>
+                        </div>
+                        <label>
+                            <input type="checkbox" required>
+                            <span class="label-body">
+                                I agree all the <a href="#">terms and conditions</a>
+                            </span>
+                        </label>
+                        <button type="submit" name="submit" class="btn btn-dark btn-full btn-medium">Submit</button>
+                    </form>
+                </div>
+            </div> *@
+        </div>
+    </div>
+</section>
+
+@* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5677887676413!2d-52.43766997022098!3d-29.708017387320357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ca3518a7a1019%3A0xc18d49a239256860!2sR.%20Coronel%20Oscar%20Rafael%20Jost%2C%202015%20-%20Centro%2C%20Santa%20Cruz%20do%20Sul%20-%20RS%2C%2096815-010!5e0!3m2!1spt-BR!2sbr!4v1730488779619!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed
+*@
+
+<section class="google-map">
+    <div class="mapouter">
+        <div class="gmap_canvas">
+            <iframe width="100%" height="500" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d257.5677887676413!2d-52.43766997022098!3d-29.708017387320357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951ca3518a7a1019%3A0xc18d49a239256860!2sR.%20Coronel%20Oscar%20Rafael%20Jost%2C%202015%20-%20Centro%2C%20Santa%20Cruz%20do%20Sul%20-%20RS%2C%2096815-010!5e0!3m2!1spt-BR!2sbr!4v1730488779619!5m2!1spt-BR!2sbr" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+            <a href="https://getasearch.com/fmovies"></a>
+            <br>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 500px;
+                    width: 100%;
+                }
+            </style>
+            <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+            <style>
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 500px;
+                    width: 100%;
+                }
+            </style>
+        </div>
+    </div>
+</section>
+
+<section id="brand-collection" class="padding-medium bg-light-grey">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-between">
+            <img src="images/brand1.png" alt="phone" class="brand-image">
+            <img src="images/brand2.png" alt="phone" class="brand-image">
+            <img src="images/brand3.png" alt="phone" class="brand-image">
+            <img src="images/brand4.png" alt="phone" class="brand-image">
+            <img src="images/brand5.png" alt="phone" class="brand-image">
+        </div>
+    </div>
+</section>
+
+<section id="instagram" class="padding-large">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Follow our instagram</h2>
+        </div>
+        <p>
+            Our official Instagram account <a href="#">ultras</a> or <a href="#">#ultras_clothing</a>
+        </p>
+        <div class="row d-flex flex-wrap justify-content-between">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image1.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image2.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image3.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image4.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image5.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <figure class="zoom-effect">
+                    <img src="images/insta-image6.jpg" alt="instagram" class="insta-image">
+                    <i class="icon icon-instagram"></i>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>

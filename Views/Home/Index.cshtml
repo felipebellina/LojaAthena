@@ -1,0 +1,33 @@
+﻿@model HomeViewModel
+
+<partial name="_Carousel"/>
+
+@* <h2>O que está em alta</h2>
+<h4>Quer ficar na moda????</h4>
+
+<div class="row">
+    @foreach (var roupa in Model.RoupasPreferidas)
+    {
+        <partial name="_RoupaResumo" for="@roupa" />
+    }
+</div> *@
+
+<section id="featured-products" class="product-store padding-large">
+    <div class="container">
+        <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
+            <h2 class="section-title">Produtos em destaque</h2>
+            <div class="btn-wrap">
+                <a asp-controller="Roupa" asp-action="List" class="d-flex align-items-center">Todos os produtos<i class="icon icon icon-arrow-io"></i></a>
+            </div>
+        </div>
+        <div class="swiper product-swiper overflow-hidden">
+            <div class="swiper-wrapper">
+                @foreach (var roupa in Model.RoupasPreferidas)
+                {
+                    <partial name="_RoupaResumo" for="@roupa" />
+                }
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>

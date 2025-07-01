@@ -1,0 +1,49 @@
+﻿
+@model RoupaModel
+
+@* <div class="col-sm-4 col-md-4 col-lg-4">
+    <p><img src="@Model.ImagemUrl" height="150px" width="150px" asp-append-version="true" /></p>
+    <h3>@Model.Nome</h3>
+    <h4>Preço : @Model.Preco.ToString("c")</h4>
+    <p><a asp asp-controller="Roupa" asp-action="Details" asp-route-Id="@Model.Id">@Model.Nome</a></p>
+    
+    <p>@Model.Descricao</p>
+    <div>
+        <p class="button">
+            <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="AdicionarNoCarrinho"
+            asp-route-Id="@Model.Id">
+            Incluir no Carrinho
+            </a>
+        </p>
+    </div>
+</div> *@
+
+<div class="swiper-slide">
+    <div class="product-item">
+        <div class="image-holder">
+            <a asp-action="Details" asp-controller="Roupa" asp-route-Id="@Model.Id">
+                <img src="@Model.ImagemUrl" alt="@Model.Nome" class="product-image" asp-append-version="true">
+            </a>
+        </div>
+        <div class="cart-concern">
+            <div class="cart-button d-flex justify-content-between align-items-center">
+                <a type="button" class="btn-wrap cart-link d-flex align-items-center" asp-controller="CarrinhoCompra" asp-action="AdicionarNoCarrinho" asp-route-Id="@Model.Id">
+                    add ao carrinho <i class="icon icon-arrow-io"></i>
+                </a>
+                @* <button type="button" class="view-btn tooltip d-flex">
+                    <i class="icon icon-screen-full"></i>
+                    <span class="tooltip-text">Quick view</span>
+                </button>
+                <button type="button" class="wishlist-btn">
+                    <i class="icon icon-heart"></i>
+                </button> *@
+            </div>
+        </div>
+        <div class="product-detail">
+            <h3 class="product-title">
+                <a href="single-product.html">@Model.Nome</a>
+            </h3>
+            <span class="item-price text-primary">R$ @string.Format(CultureInfo.GetCultureInfo("pt-BR"), "{0:N2}", Model.Preco)</span>
+        </div>
+    </div>
+</div>
